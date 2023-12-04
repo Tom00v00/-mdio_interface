@@ -170,18 +170,26 @@ always @(posedge iclk_100m) begin
         end
 end
 
+reg	[0:0]		r_mdc_p , r_mdc_n ;
+
 always @(posedge iclk_100m) begin
         if (state == STATE_IDLE) begin
                 o_mdc <= 1'b1 ;
+                r_mdc_p <= 1'b0 ;
+                r_mdc_n <= 1'b0 ;
         end
         else if (time_ctrl_cnt == 5'd09) begin//下降沿
                 o_mdc <= 1'b0 ;
+                r_mdc_n <= 1'b1 ;
         end
         else if (time_ctrl_cnt == 5'd19) begin//上升沿
                 o_mdc <= 1'b1 ;
+                r_mdc_p <= 1'b1 ;
         end
         else begin
                 o_mdc <= o_mdc ;
+                r_mdc_p <= 1'b0 ;
+                r_mdc_n <= 1'b0 ;
         end
 end
 
