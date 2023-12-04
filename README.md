@@ -11,12 +11,12 @@ module mdio_interface (
         input	wire	[15:0]		i_master_write_data     ,//要写入到寄存器的数据
         input	wire	[0:0]		i_operation_begin       ,//一次读写操作开始
 
-        output	reg	[15:0]          o_master_read_data      ,//从从机的某个寄存器上读取到的数据
-        output	reg	[0:0]		o_master_read_data_valid,
-        output	reg	[0:0]		o_operation_finish      ,//一次读写操作结束
-        output	reg	[0:0]		o_mdio_master_busy      ,//主机占用总线
-        output	reg	[0:0]		o_salve_ack_ready       ,//从机准备好应答
-        output	reg	[0:0]           o_mdc		        ,//5MHz
+        output	reg    	[15:0]      o_master_read_data      ,//从从机的某个寄存器上读取到的数据
+        output	reg	    [0:0]		o_master_read_data_valid,
+        output	reg	    [0:0]		o_operation_finish      ,//一次读写操作结束
+        output	reg	    [0:0]		o_mdio_master_busy      ,//主机占用总线
+        output	reg	    [0:0]		o_salve_ack_ready       ,//从机准备好应答
+        output	reg	    [0:0]       o_mdc		        ,//5MHz
         inout	wire	[0:0]		o_mdio		
 );
 
